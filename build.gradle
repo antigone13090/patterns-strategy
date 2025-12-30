@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    mainClass = 'headfirst.designpatterns.strategy.MiniDuckSimulator'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('run1', JavaExec) {
+    group = 'application'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'headfirst.designpatterns.strategy.MiniDuckSimulator1'
+}
