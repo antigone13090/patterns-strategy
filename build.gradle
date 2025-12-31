@@ -26,3 +26,27 @@ tasks.register('run1', JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'headfirst.designpatterns.strategy.MiniDuckSimulator1'
 }
+
+tasks.register("runEcommerce", JavaExec) {
+  group = "application"
+  description = "Run Strategy e-commerce case (discounts + shipping)"
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = "headfirst.designpatterns.strategy.ecommerce.EcommerceDemo"
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation platform('org.junit:junit-bom:5.10.2')
+  testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+  useJUnitPlatform()
+}
+
+dependencies {
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
